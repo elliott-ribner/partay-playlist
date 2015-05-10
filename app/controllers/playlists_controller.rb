@@ -16,8 +16,6 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    client = Soundcloud.new(client_id: '8e9e076931762d84d99f341ccb71fe3f')
-    @tracks = client.get('/tracks', q: 'ta-ku')
     @playlist = Playlist.find(params[:id])
   end
 
@@ -28,7 +26,9 @@ class PlaylistsController < ApplicationController
     client = Soundcloud.new(client_id: '8e9e076931762d84d99f341ccb71fe3f')
     @tracks = client.get('/tracks', q: params[:q])
     @playlist = Playlist.find(params[:playlist_id])
-    render :show
+    respond_to do |format|
+      format.js
+    end
   end
 
 
