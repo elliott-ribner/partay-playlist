@@ -12,7 +12,7 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">SoundCloud</a></h1>
+
       </li>
     </ul>
 
@@ -33,10 +33,21 @@
       <%= value %>
     </div>
   <%- end -%>
+  <div class='row header'>
+    <h1><a href="/">SC JUKEBOX</a></h1>
+    <hr>
+    <div class="link-bar ">
+    <%= link_to 'home', new_user_registration_path %> /
+    <%= link_to 'top playlists', new_user_registration_path %> /
+    <%= link_to 'create new list', new_user_registration_path %>
+  </div>
+    <hr>
+  </div>
 
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
+
 
   <%= yield :extra_footer %>
 </body>

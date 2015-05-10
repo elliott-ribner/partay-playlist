@@ -1,23 +1,19 @@
-// SC.initialize({
-//   client_id: '8e9e076931762d84d99f341ccb71fe3f',
-//   redirect_uri: 'http://www.elrwebsolutions.com'
-// });
+SC.initialize({
+  client_id: '8e9e076931762d84d99f341ccb71fe3f'
+});
 
 
 
 
+function playTrack(trackId) {
 
-// function search(playlist) {
+soundManager.stopAll();
 
-//   var song = document.getElementById('song').value;
-//   SC.get('https://api.soundcloud.com/tracks/', { song: song }, function(tracks) {
-//     $('#results').empty();
-//     $(tracks).each(function(index, track) {
-//       $('#results').append('<a href="/playlists/' + playlist + '/edit?param1=valuex">'+ track.title+'</a><br>');
-//     });
-//   });
-
-// }
+SC.stream("/tracks/"+ trackId, { autoPlay: true , volume: 25, onfinish: function() {
+      playTrack('293');
+    }
+  });
+};
 
 
 

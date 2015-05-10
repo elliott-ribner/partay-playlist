@@ -1,14 +1,14 @@
 <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js' %>
 
+
 <div class="row">
   <div class="small-6 columns">
-<h1>Playlist</h1>
+<h3>Playlist</h3>
 <div id="playlist">
 <ul>
   <% @playlist.songs.each do |song| %>
-  <li><%= song.title %></li>
+  <li><%= link_to song.title , '#', onclick: "playTrack(this.id)", id: song.soundcloud_id %></li>
   <% end %>
-
 </ul>
 </div>
 <!-- embed tracks here and make playlist
@@ -18,7 +18,7 @@ add relationship between playlist and songs in db and call playlist.songs or som
 
 <div class="small-6 columns">
 
-<h1>Search</h1>
+<h3>Search</h3>
 
 <%= form_tag('/search', remote: true , method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
