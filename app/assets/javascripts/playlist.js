@@ -6,11 +6,10 @@ SC.initialize({
 
 
 function playTrack(trackId) {
-
 soundManager.stopAll();
-
 SC.stream("/tracks/"+ trackId, { autoPlay: true , volume: 25, onfinish: function() {
-      playTrack('293');
+      var nextId = $('#'+ trackId).next('.playlink').attr('id');
+      playTrack(nextId);
     }
   });
 };

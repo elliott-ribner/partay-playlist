@@ -5,11 +5,11 @@
   <div class="small-6 columns">
 <h3>Playlist</h3>
 <div id="playlist">
-<ul>
+
   <% @playlist.songs.each do |song| %>
-  <li><%= link_to song.title , '#', onclick: "playTrack(this.id)", id: song.soundcloud_id %></li>
+  <%= link_to song.title , '#', onclick: "playTrack(this.id)", id: song.soundcloud_id, class: 'playlink' %>
   <% end %>
-</ul>
+
 </div>
 <!-- embed tracks here and make playlist
 add relationship between playlist and songs in db and call playlist.songs or something like that -->
@@ -21,10 +21,10 @@ add relationship between playlist and songs in db and call playlist.songs or som
 <h3>Search</h3>
 
 <%= form_tag('/search', remote: true , method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
+  <%= label_tag(:q, "") %>
   <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-  <%= hidden_field_tag :playlist_id, params[:id] %>
+  <%= submit_tag("Search", class: "button")  %>
+  <%= hidden_field_tag :playlist_id, params[:id]%>
 <% end %>
 
 <ul id="results">
