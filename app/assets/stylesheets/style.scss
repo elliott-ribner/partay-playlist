@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400);
 @import url(https://fonts.googleapis.com/css?family=Lato);
-
+@import "font-awesome";
 
  // $white       : #FFFFFF;
  $ghost       : #FAFAFA;
@@ -33,6 +33,29 @@ $light-yellow : #FFFA70;
  list-style-type: none;
  list-style:none;
  padding-left:0;
+}
+.song {
+  width: 100%;
+  padding-left: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+    a {
+      padding-left: 10px;
+    }
+
+}
+
+.playing {
+  /*background-color: $light-yellow;*/
+   background-color: rgba(200, 54, 54, 0.5);
+  color: $oil;
+  a {
+    color: $oil;
+  }
+}
+
+.not-playing {
+  background-color: $oil;
 }
 
 
