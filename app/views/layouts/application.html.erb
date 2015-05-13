@@ -9,7 +9,16 @@
 </head>
 <body>
 
-  <nav class="top-bar">
+
+
+  <%- flash.each do |key, value| -%>
+    <div class="flash flash-<%= key %>">
+      <%= value %>
+    </div>
+  <%- end -%>
+  <div class='row header'>
+    <h1><a href="/">SC JUKEBOX</a></h1>
+   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
 
@@ -21,27 +30,14 @@
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
+          <li><%= link_to 'Create Playlist', new_playlist_path %></li>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
     </section>
+    <hr>
   </nav>
-
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
-  <div class='row header'>
-    <h1><a href="/">SC JUKEBOX</a></h1>
-    <hr>
-    <div class="link-bar ">
-    <%= link_to 'home', new_user_registration_path %> /
-    <%= link_to 'top playlists', new_user_registration_path %> /
-    <%= link_to 'create new list', new_user_registration_path %>
-  </div>
-    <hr>
   </div>
 
   <%= yield %>

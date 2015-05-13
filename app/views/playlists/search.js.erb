@@ -1,4 +1,4 @@
-
+$('#results').empty();
 <% @tracks.each do |track| %>
  $('#results').append('<li><%=  link_to track.title, playlist_songs_path(@playlist, soundcloud_id: track.id, title: track.title, permalink_url: track.permalink_url, stream_url: track.stream_url ), method: 'post' %></li>');
 <% end %>
