@@ -10,7 +10,7 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist = Playlist.new(name: params[:playlist][:name])
+    @playlist = Playlist.new(playlist_params)
     @playlist.save
     redirect_to playlists_path
   end
@@ -29,6 +29,13 @@ class PlaylistsController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+
+  private
+
+  def playlist_params
+    params.require(:playlist).permit(:name, :description)
   end
 
 
